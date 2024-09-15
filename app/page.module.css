@@ -1,0 +1,36 @@
+.container {
+  font-family: "Poppins", sans-serif;
+}
+
+.howItWorks {
+  background-color: #f9f9f9;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.features {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.featuresList {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.featureIcon {
+  font-size: 2rem;
+}
+
+.sectionTitle {
+  margin-bottom: 3rem;
+}

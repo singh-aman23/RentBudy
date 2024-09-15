@@ -1,0 +1,122 @@
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #f9f6ee; 
+  }
+  
+  .slideshowContainer {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff; 
+  }
+  
+  .lowerContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .propertyDetails {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff; 
+  }
+  
+  .propertyDetails h5 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #e3345d; 
+  }
+  
+  .addressContainer {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #ff385c; 
+    margin-bottom: 20px;
+  }
+  
+  .addressContainer strong {
+    display: block;
+    font-size: 1.2rem;
+    color: #fff; 
+    margin-bottom: 5px;
+  }
+  
+  .addressContainer p {
+    color: #fff; 
+    font-size: 1rem;
+  }
+  
+  .detailsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+  }
+  
+  .detailItem {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f6ee; 
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .detailItem:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .detailItem strong {
+    display: block;
+    color: #e3345d; 
+    margin-bottom: 5px;
+  }
+  
+  .detailItem span {
+    color: #555; 
+  }
+  
+  .mapContainer {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff; 
+  }
+  
+  @media (max-width: 768px) {
+    .slideshowContainer,
+    .mapContainer {
+      margin-bottom: 15px;
+    }
+  
+    .propertyDetails {
+      padding: 15px;
+    }
+  
+    .propertyDetails h5 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .addressContainer button{
+    background-color:  white;
+    color: #ff385c;
+    font-weight: 900;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .addressContainer button:hover {
+    transform: scale(1.05);
+  }
+
+  .info{
+    display : flex;
+    justify-content: space-between;
+  }
+  

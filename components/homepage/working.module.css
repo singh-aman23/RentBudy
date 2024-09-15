@@ -1,0 +1,22 @@
+.step {
+  max-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.step:hover {
+  transform: scale(1.1);
+}
+
+.icon img {
+  height: 2rem;
+  width: 2rem;
+}
+
+.stepTitle {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.stepDescription {
+  font-size: 1rem;
+}

@@ -1,0 +1,86 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.logo {
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+}
+
+.centerLinks {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.navLink {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #5d5d5d;
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 1.5rem;
+  transition: background-color 0.3s ease, outline 0.3s ease;
+  outline: 2px solid transparent;
+}
+
+.navLink:hover {
+  background-color: #eae8e3;
+  outline: 2px solid none;
+  color: #333333;
+}
+
+.userMenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.userIcon {
+  display: flex;
+  align-items: center;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.username {
+  font-size: 1.1rem;
+  color: #484848;
+}
+
+.dropdownMenu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.dropdownItem {
+  background-color: #ff385c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dropdownItem:hover {
+  background-color: #e13451;
+  transform: scale(1.05);
+}

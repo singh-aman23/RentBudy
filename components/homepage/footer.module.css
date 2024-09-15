@@ -1,0 +1,16 @@
+.callToAction {
+  background-color: #f9f9f9;
+  color: black;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ctaSubtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}

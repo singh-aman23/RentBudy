@@ -94,26 +94,3 @@
 
 }
 
-.likeButton {
-    padding: 0.5rem 1rem;
-    background-color: #ffffff;
-    border: 1px solid #ff385c;
-    color: #ff385c;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.likeButton:hover {
-    background-color: #ff385c;
-    color: #ffffff;
-}
-
-.likeIcon {
-    width: 16px;
-    height: 16px;
-    margin-right: 0.5rem;
-}
-

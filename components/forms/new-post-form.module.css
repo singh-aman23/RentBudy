@@ -1,0 +1,109 @@
+.formContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 1rem;
+  width: 75%;
+  margin: auto;
+  margin-top: 2%;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputField input {
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease;
+}
+
+.inputField input:focus {
+  border-color: #ff385c;
+  outline: none;
+}
+
+.pincode {
+  grid-column: span 4;
+}
+
+.preferance {
+  grid-column: span 2;
+}
+
+.rent {
+  grid-column: span 3;
+}
+.roommate {
+  grid-column: span 3;
+}
+
+.bhk {
+  grid-column: span 2;
+}
+
+.utilities {
+  grid-column: span 4;
+}
+
+.houseNumber {
+  grid-column: span 2;
+}
+.city {
+  grid-column: span 2;
+}
+.state {
+  grid-column: span 2;
+}
+
+.btnContainer button {
+  width: 100%;
+  max-width: 200px;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  background-color: #ff385c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnContainer button:hover {
+  background-color: #e13451;
+  transform: scale(1.05);
+}
+
+.btnContainer {
+  margin: 3% 40%;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.inputField input[type="file"] {
+  display: none;
+}
+
+.inputField label[for="image"] {
+  display: inline-block;
+  background-color: #ff385c;
+  color: white;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.inputField label[for="image"]:hover {
+  background-color: #e13451;
+  transform: scale(1.05);
+}

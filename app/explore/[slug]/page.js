@@ -1,15 +1,48 @@
-import Slideshow from '@/components/utility/slideshow'; 
-import { Paper, Typography } from '@mui/material'; 
-import styles from './page.module.css'; 
+import Slideshow from "@/components/utility/slideshow";
+import { Paper, Typography } from "@mui/material";
+import styles from "./page.module.css";
+import Details from "@/components/utility/detail-item";
+import ContactButton from "@/components/utility/contact-button";
 
-const PropertyDetails = () => {
+async function getPostById(id) {
+  try {
+    const postSearch = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/details`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id }),
+      }
+    );
+
+    if (!postSearch.ok) {
+      throw new Error("Failed to fetch post");
+    }
+
+    const { post } = await postSearch.json();
+    return post;
+  } catch (error) {
+    console.log("Error while fetching details : ", error);
+    return null;
+  }
+}
+
+const PropertyDetails = async ({ params }) => {
+  const post = await getPostById(params.slug);
+
+  if (!post) {
+    console.log("id : ", params.slug);
+    return <p>Error loading post details</p>;
+  }
+
   const images = [
-    'https://nextui.org/images/hero-card-complete.jpeg',
-    'https://nextui.org/images/card-example-1.jpeg',
-    'https://nextui.org/images/card-example-2.jpeg'
+    "https://nextui.org/images/hero-card-complete.jpeg",
+    "https://nextui.org/images/card-example-1.jpeg",
+    "https://nextui.org/images/card-example-2.jpeg",
   ];
 
-  const mapSrc = `https://www.google.com/maps/embed/v1/place?q=40.712776,-74.005974&key=AIzaSyDiDR5AcMSyWYM0tUJaLk-qXhypfZ7B9bg`;
 
   return (
     <div className={styles.container}>
@@ -20,46 +53,19 @@ const PropertyDetails = () => {
         <div className={styles.propertyDetails}>
           <h5>Property Information</h5>
           <div className={styles.addressContainer}>
-          <div className = {styles.info}>
-
-            <strong>Address:</strong>
-            <strong>2 BHK</strong>
-          </div>
-            <p>1234 Elm Street, Springfield, IL, 62704</p>
-            <button>Contact</button>
+            <div className={styles.info}>
+              <strong>Address:</strong>
+              <strong>{post.bhk} BHK</strong>
+            </div>
+            <p>{`H.No ${post.houseNumber}, ${post.city}, ${post.state}, ${post.pincode}`}</p>
+            <ContactButton contact = {post.contact} />
           </div>
           <div className={styles.detailsGrid}>
-            <div className={styles.detailItem}>
-              <strong>Monthly Rent:</strong>
-              <span>Rs 25000</span>
-            </div>
-            <div className={styles.detailItem}>
-              <strong>Current Roommates:</strong>
-              <span>2</span>
-            </div>
-            <div className={styles.detailItem}>
-              <strong>Preferred Roommate:</strong>
-              <span>Female</span>
-            </div>
-            <div className={styles.detailItem}>
-              <strong>Utilities Included:</strong>
-              <span>Electricity, Water, Internet</span>
-            </div>
+            <Details title="Monthly Rent: " content={post.rent} />
+            <Details title="Current Roommates: " content={post.roommates} />
+            <Details title="Preferred Roommate: " content={post.preferance} />
+            <Details title="Utilities Included: " content={post.utilities} />
           </div>
-        </div>
-        {/* Google Map for Location */}
-        <div className={styles.mapContainer}>
-          <Paper elevation={3}>
-            <Typography variant="h6">Location</Typography>
-            <iframe
-              title="Property Location"
-              src={mapSrc}
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-            ></iframe>
-          </Paper>
         </div>
       </div>
     </div>

@@ -56,27 +56,6 @@
     justify-content: space-around;
   }
   
-  .detailItem {
-    padding: 15px;
-    border-radius: 8px;
-    background-color: #f9f6ee; 
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .detailItem:hover {
-    transform: scale(1.03);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .detailItem strong {
-    display: block;
-    color: #e3345d; 
-    margin-bottom: 5px;
-  }
-  
-  .detailItem span {
-    color: #555; 
-  }
   
   .mapContainer {
     border-radius: 8px;

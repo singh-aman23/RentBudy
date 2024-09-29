@@ -28,12 +28,26 @@
   outline: 2px solid transparent;
 }
 
+.activeLink{
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  padding: 0.8rem;
+  border-radius: 1.5rem;
+  transition: background-color 0.3s ease, outline 0.3s ease;
+  outline: 2px solid transparent;
+}
+
+.activeLink:hover {
+  background-color: #eae8e3;
+  outline: 2px solid none;
+}
+
 .navLink:hover {
   background-color: #eae8e3;
   outline: 2px solid none;
-  color: #333333;
 }
-
 .userMenu {
   position: relative;
   display: flex;

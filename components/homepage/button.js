@@ -4,7 +4,7 @@ export default function Button() {
   return (
     <>
       <div className={classes.heroButtons}>
-        <a href="/get-started" className={classes.ctaButton}>
+        <a href="/get-started/login" className={classes.ctaButton}>
           Get Started
         </a>
       </div>

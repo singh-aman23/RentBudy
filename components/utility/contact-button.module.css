@@ -1,0 +1,11 @@
+.btn{
+    background-color: #ff385c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .btn:hover {
+    transform: scale(1.05);
+  }

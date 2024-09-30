@@ -39,11 +39,7 @@ export default function DashboardCard({post}) {
     }
   }
 
-  const images = [
-    "https://nextui.org/images/hero-card-complete.jpeg",
-    "https://nextui.org/images/card-example-1.jpeg",
-    "https://nextui.org/images/card-example-2.jpeg",
-  ];
+  const images = [post.image];
 
   return (
     <>

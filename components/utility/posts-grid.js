@@ -19,6 +19,7 @@ export default function PostGrid({ posts }) {
           state={post.state} 
           id = {post._id}
           pincode = {post.pincode}
+          image = {post.image}
         />
       ))}
       </div>

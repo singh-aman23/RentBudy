@@ -45,7 +45,12 @@ const postSchema = new Schema(
     contact : {
       type : String,
       required : true
-    },
+    }
+    ,
+    image : {
+      type : String,
+      required : true
+    }
   },
   {
     timestamps: true,

@@ -16,6 +16,7 @@ export async function POST(req) {
       utilities,
       userEmail,
       contact,
+      image
     } = await req.json();
 
     await connectMongoDB();
@@ -31,6 +32,7 @@ export async function POST(req) {
       utilities,
       userEmail,
       contact,
+      image
     });
 
     return NextResponse.json(
@@ -51,7 +53,8 @@ export async function POST(req) {
         bhk,
         utilities,
         userEmail,
-        contact
+        contact,
+        image
       )
     );
 

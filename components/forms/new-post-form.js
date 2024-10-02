@@ -5,86 +5,114 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 
 export default function NewPostForm({ contact }) {
-
   const { data: session } = useSession();
   const router = useRouter();
   console.log("Session data : ", session);
   const userEmail = session?.user?.email;
-  const [error,setError] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/upload`, {
-        method : "POST",
-        body : formData
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const result = await response.json();
 
-      if(!formData.get('houseNumber') || !formData.get('city') ||!formData.get('state') ||!formData.get('pincode') ||!formData.get('preferance') ||!formData.get('monthlyRent') ||!formData.get('roommates') ||!formData.get('bhk') ||!formData.get('utilities')){
+      if (
+        !formData.get("houseNumber") ||
+        !formData.get("city") ||
+        !formData.get("state") ||
+        !formData.get("pincode") ||
+        !formData.get("preferance") ||
+        !formData.get("monthlyRent") ||
+        !formData.get("roommates") ||
+        !formData.get("bhk") ||
+        !formData.get("utilities")
+      ) {
         setError("All fields are mandatory");
         return;
       }
 
-      if(!result.url){
+      if (!result.url) {
         setError("Please upload an image of property");
         return;
       }
 
-      const trimmedPreferance = formData.get('preferance').trim().toLowerCase();
+      const trimmedPreferance = formData.get("preferance").trim().toLowerCase();
 
       if (
         trimmedPreferance !== "m" &&
         trimmedPreferance !== "f" &&
         trimmedPreferance !== "any"
       ) {
-        setError("Invalid roommate preference. Please enter 'M', 'F', or 'Any'.");
+        setError(
+          "Invalid roommate preference. Please enter 'M', 'F', or 'Any'."
+        );
         return;
       }
 
-      if(response.ok){
+      if (response.ok) {
         const postDetails = {
-          houseNumber: formData.get('houseNumber'),
-          city: formData.get('city'),
-          state: formData.get('state'),
-          pincode: formData.get('pincode'),
-          preferance: formData.get('preferance'),
-          rent: formData.get('monthlyRent'),
-          roommates: formData.get('roommates'),
-          bhk: formData.get('bhk'),
-          utilities: formData.get('utilities'),
-          userEmail: userEmail,  
+          houseNumber: formData.get("houseNumber"),
+          city: formData.get("city"),
+          state: formData.get("state"),
+          pincode: formData.get("pincode"),
+          preferance: formData.get("preferance"),
+          rent: formData.get("monthlyRent"),
+          roommates: formData.get("roommates"),
+          bhk: formData.get("bhk"),
+          utilities: formData.get("utilities"),
+          userEmail: userEmail,
           contact: contact,
-          image: result.url,  
+          image: result.url,
         };
 
-        const postResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/post`, {
-          method : "POST",
-          headers : {
-            "Content-Type" : "application/json"
-          },
-          body : JSON.stringify(postDetails)
-        });
-        
+        const postResponse = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/post`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(postDetails),
+          }
+        );
+
         const postResult = await postResponse.json();
-        if(postResponse.ok){
+        if (postResponse.ok) {
           console.log("Post created successfully: ", postResult);
           router.push("/dashboard");
-        }else{
+        } else {
           console.error("Post creation failed", postResult.error);
         }
-    } 
-  }catch (error) {
-    console.error("error: ", error);
+      }
+    } catch (error) {
+      console.error("error: ", error);
+    }
   };
-}
-  
+
+  function handleFileChange(event) {
+    const fileInput = event.target;
+    const fileNameDisplay = document.getElementById("fileName");
+
+    if (fileInput.files.length > 0) {
+      fileNameDisplay.textContent = fileInput.files[0].name; 
+    } else {
+      fileNameDisplay.textContent = "No file chosen"; 
+    }
+  }
+
   return (
     <>
-      <form onSubmit = {handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className={classes.formContainer}>
           <div className={`${classes.inputField} ${classes.houseNumber}`}>
             <input
@@ -105,12 +133,7 @@ export default function NewPostForm({ contact }) {
           </div>
 
           <div className={`${classes.inputField} ${classes.state}`}>
-            <input
-              type="text"
-              name="state"
-              id="state"
-              placeholder="State"
-            />
+            <input type="text" name="state" id="state" placeholder="State" />
           </div>
 
           <div className={`${classes.inputField} ${classes.pincode}`}>
@@ -147,12 +170,7 @@ export default function NewPostForm({ contact }) {
           </div>
 
           <div className={`${classes.inputField} ${classes.bhk}`}>
-            <input
-              type="text"
-              name="bhk"
-              id="bhk"
-              placeholder="BHK"
-            />
+            <input type="text" name="bhk" id="bhk" placeholder="BHK" />
           </div>
           <div className={`${classes.inputField} ${classes.utilities}`}>
             <input
@@ -162,12 +180,19 @@ export default function NewPostForm({ contact }) {
               placeholder="Utilities"
             />
           </div>
-          <input
-            type="file"
-            accept="image/png, image/jpeg"
-            id="image"
-            name="image"
-          />
+          <div className={`${classes.inputField} ${classes.fileInput}`}>
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              id="image"
+              name="image"
+              onChange={handleFileChange}
+            />
+            <label htmlFor="image">Choose Image</label>
+            <span id="fileName" className={classes.fileName}>
+              No file chosen
+            </span>
+          </div>
         </div>
         <div className={classes.btnContainer}>
           <button>POST</button>
@@ -177,4 +202,3 @@ export default function NewPostForm({ contact }) {
     </>
   );
 }
-

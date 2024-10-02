@@ -5,6 +5,7 @@ import classes from "./navbar.module.css";
 import { usePathname } from "next/navigation";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function Navbar() {
     <nav className={classes.navbar}>
       <div>
         <Link href="/explore">
-          <img src="/logo.jpg" alt="umbrella Logo" className={classes.logo} />
+          <Image src="/logo.jpg" alt="umbrella Logo" className={classes.logo} />
         </Link>
       </div>
 
@@ -45,7 +46,7 @@ export default function Navbar() {
 
       <div className={classes.userMenu}>
         <div onClick={toggleDropdown} className={classes.userIcon}>
-          <img
+          <Image
             src="/cat.jpeg"
             alt="cat avatar"
             className={classes.userAvatar}

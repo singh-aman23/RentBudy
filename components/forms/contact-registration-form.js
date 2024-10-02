@@ -32,7 +32,7 @@ export default function ContactRegistrationForm(){
     return <>
         <form className = {classes.contactRegistrationForm} onSubmit = {handleRegistration}>
         <Symbol link = "/explore"/>
-        <p>Kindly register your contact number to continue</p>
+        <p>Kindly register your contact number so that potential roommates can contact you.</p>
         <input
           onChange={(e) => setContact(e.target.value)}
           type="text"

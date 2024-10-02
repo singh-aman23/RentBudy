@@ -13,7 +13,7 @@ export default function DashboardPostGrid({posts}){
           </Link>
         </header>
         <div className={classes.dashboardCardContainer}>
-        {posts.length > 0 ? (posts.map(post => (<DashboardCard post = {post}/>))) : <p>No post found</p>}
+        {posts.length > 0 ? (posts.map(post => (<DashboardCard key = {post._id} post = {post}/>))) : <p>No post found</p>}
           
         </div>
       </div>

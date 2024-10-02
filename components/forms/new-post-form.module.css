@@ -88,12 +88,12 @@
 }
 
 .inputField input[type="file"] {
-  display: none;
+  display: none; 
 }
 
 .inputField label[for="image"] {
   display: inline-block;
-  background-color: #ff385c;
+  background-color: #ff385c; 
   color: white;
   padding: 0.75rem 1rem;
   font-size: 1rem;
@@ -101,9 +101,19 @@
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   text-align: center;
+  width: 100%; 
+  max-width: 200px; 
 }
 
 .inputField label[for="image"]:hover {
-  background-color: #e13451;
+  background-color: #e13451; 
   transform: scale(1.05);
 }
+
+.fileName {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #333; 
+}
+

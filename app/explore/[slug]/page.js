@@ -1,5 +1,4 @@
 import Slideshow from "@/components/utility/slideshow";
-import { Paper, Typography } from "@mui/material";
 import styles from "./page.module.css";
 import Details from "@/components/utility/detail-item";
 import ContactButton from "@/components/utility/contact-button";

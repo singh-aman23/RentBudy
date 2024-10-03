@@ -2,7 +2,7 @@ import classes from './searchbar.module.css';
 
 export default function SearchBar() {
     return (
-      <div className={classes.searchBar}>
+      <div className={`${classes.searchBar} ${classes.disabled}`}>
         <input
           type="text"
           placeholder="Looking for a house? Enter location..."

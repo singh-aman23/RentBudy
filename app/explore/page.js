@@ -6,9 +6,6 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
-// Function to fetch posts
-
-// Main Explore component
 export default function Explore() {
   const { data: session } = useSession();
   const [posts, setPosts] = useState([]);
